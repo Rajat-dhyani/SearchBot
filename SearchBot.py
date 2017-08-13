@@ -30,7 +30,7 @@ def send_welcome(message):
     """
     bot.reply_to(message, u"Hello, welcome to THE SEARCH BOT \
                             \n You can search anything and everything via me. \
-                            \n Simply use @thesearchbot to ask queries")
+                            \n Simply use @thesearchbot in your chat box to ask queries")
 
 
 @bot.inline_handler(lambda query: len(query.query) > 3)
