@@ -1,1 +1,1 @@
-web: python SearchBot.py
+web: gunicorn gettingstarted.wsgi --log-file -
