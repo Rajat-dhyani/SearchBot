@@ -1,1 +1,1 @@
-web: python SearchBot.py runserver 0.0.0.0:$PORT
+web: python SearchBot.py runserver $PORT
