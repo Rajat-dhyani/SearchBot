@@ -56,15 +56,17 @@ def query_text(inline_query):
             resp = types.InlineQueryResultArticle('1', 'Top Results',
                                                   types.InputTextMessageContent('Top 5 Results: '))
             response.append(resp)
+            item = results.get('items')
 
             for i in range(0, 5, 1):
-                item = results.get('items')
                 print(item[i])
                 resp = types.InlineQueryResultArticle(str(i+2), item[i]["title"],
-                                                      types.InputTextMessageContent(item[i]["snippet"]),
-                                                      reply_markup='View More',
+                                                      types.InputTextMessageContent(
+                                                               '*'+ item[i]["title"] + '*\n'
+                                                                + item[i]["snippet"] + '\n'
+                                                                + '[View More]('+item[i]['link']+') ', parse_mode='Markdown'),
                                                       url=item[i]['link'],
-                                                      description=item[i]['htmlSnippet'][:20])
+                                                      description=item[i]['snippet'][:100])
                 response.append(resp)
         else:
             resp = types.InlineQueryResultArticle('1', 'Sorry I did\'t get you. Would you please simplify your query?',
@@ -79,7 +81,8 @@ def query_text(inline_query):
                                                   types.InputTextMessageContent(
                                                       'Sorry Maximum Daily request exceeded. Search again tomorrow :)'))
         else:
-            resp = types.InlineQueryResultArticle('1', 'Sorry I did\'t get you. Would you please simplify your query?',
+            resp = types.InlineQueryResultArticle('1', 'Sorry I did\'t get you. \n' +
+                                                  'try again?',
                                                   types.InputTextMessageContent('Search again using @thesearchbot'))
         response.append(resp)
 
