@@ -1,6 +1,8 @@
 # Search Bot  - [@thesearchbot](http://t.me/thesearchbot)
 A Telegram Bot which lets the user to search the web without leaving current conversation.
 
+![Search Bot](https://github.com/Rajat-dhyani/SearchBot/blob/master/SearchBot.jpg)
+
 Since it's a inline bot, it can be used in any telegram chat using:
 
 ```
